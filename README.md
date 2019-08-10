@@ -39,8 +39,8 @@
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|test|text|null: true|
-|image_id|text|null: true|
+|test|text||
+|image|text||
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
