@@ -47,13 +47,3 @@
 ### Association
 - belongs_to :user
 - belongs_to :group
-<br>
-
-## imagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|filename|string|null: false|
-|message_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :message
