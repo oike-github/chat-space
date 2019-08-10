@@ -1,24 +1,62 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# ChatSpaceのDB設計
+<br>
 
-Things you may want to cover:
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
 
-* Ruby version
+### Association
+- has_many :groups, through: :group_member
+- has_many :messages
+<br>
 
-* System dependencies
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|groupname|string|null: false|
+|member_id|integer|null: false, foreign_key: true|
+|message_id|integer|null: false, foreign_key: true|
 
-* Configuration
+### Association
+- has_many :users, through: :group_member
+- has_many :messages
+<br>
 
-* Database creation
+## group_userテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
-* Database initialization
+### Association
+- belongs_to :group
+- belongs_to :user
+<br>
 
-* How to run the test suite
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|test|text|null: true|
+|image_id|text|null: true|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to :user
+- belongs_to :group
+- belongs_to :image
+<br>
 
-* Deployment instructions
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|filename|string|null: false|
+|message_id|integer|null: false, foreign_key: true|
 
-* ...
+### Association
+- belongs_to :message
