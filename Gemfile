@@ -54,3 +54,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # haml makes html input easy
 gem 'haml-rails'
+
+# Font Awesome
+gem 'font-awesome-rails'
