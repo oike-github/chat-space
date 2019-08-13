@@ -12,10 +12,10 @@ module ChatSpace
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.generators do |g|
-      g.stylesheets false
-      g.javascripts false
-      g.helper false
-      g.test_framework false
+      g.stylesheets false    # CSS/JSファイル生成せず
+      g.javascripts false    # trueなら routes.rb変更せず
+      g.helper false         # ヘルパー生成せず
+      g.test_framework false # テストファイル生成せず
     end
   end
 end
