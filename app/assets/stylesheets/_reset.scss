@@ -1,6 +1,12 @@
+/*!
+ * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+ * http://cssreset.com
+ * Copyright 2012 Yahoo! Inc. All rights reserved.
+ * http://yuilibrary.com/license/
+ */
 /*
-	TODO will need to remove settings on HTML since we can't namespace it.
-	TODO with the prefix, should I group by selector or property for weight savings?
+    TODO will need to remove settings on HTML since we can't namespace it.
+    TODO with the prefix, should I group by selector or property for weight savings?
 */
 html{
 	color:#000;
@@ -11,7 +17,7 @@ html{
 */
 /*
 	TODO test putting a class on HEAD.
-		- Fails on FF.
+			- Fails on FF.
 */
 body,
 div,
@@ -105,9 +111,16 @@ select {
 	font-family:inherit;
 	font-size:inherit;
 	font-weight:inherit;
-	*font-size:100%; /*to enable resizing for IE*/
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+    *font-size:100%;
 }
 /*because legend doesn't inherit in IE */
 legend {
-	color:#000;
+    color:#000;
 }
+/* YUI CSS Detection Stamp */
+#yui3-css-stamp.cssreset { display: none; }
