@@ -1,85 +1,143 @@
+// -------------------------
+// 変数定義
+// -------------------------
+
+// カラー指定
+$flash-bgc: #38AEF0;
+$flash-color: #FFFFFF;
+$side-color: #FFFFFF; 
+$side-header-bgc: #253141;
+$side-groups-bgc: #2f3e51;
+$main-header-color-rank01: #333333;
+$main-header-color-rank02: #999999;
+$main-boder-solid: #eeeeee;
+$main-header-btncolor: #38AEF0;
+$main-messages-bgc: #fafafa;
+$main-messages-color-rank01: #434A54;
+$main-messages-color-rank02: #999999;
+$main-form-bgc: #ddd;
+$main-form-color: #434A54;
+$main-form-btnbgc: #38AEF0;
+$main-form-btncolor: #FFFFFF;
+
+
+
+// -------------------------
+// メッセージ表示領域
+// -------------------------
+
 .flash-box {
   width: 100vw;
-  background-color: #38AEF0;
-  color: #FFFFFF;
+  // background-color: #38AEF0;
+  // color: #FFFFFF;
+  background-color: $flash-bgc;
+  color: $flash-color;
   text-align: center;
   display: none;
 }
+
+// wrapper
 .wrapper {
   width: 100vw;
   height: 100vh;
   display: flex;
 }
 
+// -------------------------
+// サイド画面
+// -------------------------
+
+// サイド画面（表示領域）
 .chat-side {
   height: 100%;
   width: 300px;
-  // float: left;
   a {
     text-decoration: none;
-    color: #FFFFFF;
+    // color: #FFFFFF;
+    color: $side-color;
   }
 }
+
+// サイド画面（ヘッダー）
 .side-header {
   height: 100px;
   padding: 0 20px;
-  background-color: #253141;
-  color: #FFFFFF;
+  // background-color: #253141;
+  // color: #FFFFFF;
+  background-color: $side-header-bgc;
+  color: $side-color;
   line-height: 24px;
 
   &__box {
     line-height: 100px;
-    // user-nameとmenuを横並びにする
     display: flex;
     justify-content: space-between;
 
+    // ログインユーザー名
     &__user-name {
       display: block;
       font-size: 16px;
       font-weight: bold;
     }
 
+    // 管理メニュー
     &__menu {
-      // new-groupとedit-userを横並びにする
       display: flex;
-      // justify-content: flex-end;
-      &__new-group {
 
+      // 新規グループ作成
+      &__new-group {
+        margin-left: 0.3rem;
       }
+
+      // アカウント情報編集
       &__edit-user {
-        
+        margin-left: 0.3rem;
       }
     }
   }
-  
 }
+
+// サイド画面（グループ一覧）
 .groups {
   padding: 20px 20px 0 20px;
   height: calc(100vh - 120px);
-  background-color: #2f3e51;
-  color: #FFFFFF;
+  // background-color: #2f3e51;
+  // color: #FFFFFF;
+  background-color: $side-groups-bgc;
+  color: $side-color;
   overflow: scroll;
 }
+
+// サイド画面（グループ情報）
 .group {
+  // グループ名
   &__group-name {
     font-size: 15px;
     margin-bottom: 5px;
   }
+
+  // 最新メッセージ
   &__latest-message {
     font-size: 11px;
     margin-bottom: 40px;
   }
 }
 
+// -------------------------
+// メイン画面
+// -------------------------
 
+// メイン画面（表示領域）
 .chat-main {
   height: 100%;
   width: calc(100vw - 300px);
-  // float: left;
 }
+
+// メイン画面（ヘッダー）
 .main-header {
   height: 100px;
-  border-bottom: solid 1px #eeeeee;
+  // border-bottom: solid 1px #eeeeee;
+  border-bottom: solid 1px $main-boder-solid;
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
@@ -87,87 +145,125 @@
   &__left-box {
     margin-top: 35px;
 
+    // 現在のグループ名
     &__current-group {
       font-size: 20px;
+      // color: #333333;
+      color: $main-header-color-rank01;
     }
+
+    // メンバー一覧
     &__member-list {
       margin-top:15px;
       font-size: 12px;
-      color: #999999;
+      // color: #999999;
+      color: $main-header-color-rank02;
       display: flex;
 
+      // メンバー
       &__member {
         margin-right: 0.3rem;
       }
     }
   }
 
+  // Editボタン（リンク）
   a {
     text-decoration: none;
-    color: #38aef0;
+    // color: #38aef0;
+    color: $main-header-btncolor;
   }
 
+  // Editボタン
   &__edit-btn {
     margin-top: 28px;
     height: 40px;
-    border: solid 1px #38aef0;
+    // border: solid 1px #38aef0;
+    border: solid 1px $main-header-btncolor;
     padding: 0 20px;
     line-height: 40px;
   }
 }
+
+
+
+
+
+// メイン画面（メッセージ一覧）
 .messages {
   padding: 46px 40px;
   height: calc(100vh - 282px);
-  // height: calc(100vh - 300px);
-  background-color: #fafafa;
+  // background-color: #fafafa;
+  background-color: $main-messages-bgc;
   overflow: scroll;
 }
+
+// メイン画面（メッセージ情報）
 .message {
   margin-bottom: 40px;
 
+  // 基本情報
   &__upper-info {
     margin-bottom: 10px;
     display: flex;
 
+    // 投稿者名
     &__talker {
       font-size: 16px;
-      color: #434A54;
+      // color: #434A54;
+      color: $main-messages-color-rank01;
       font-weight: bold;
     }
+    // 投稿日時
     &__data {
       font-size: 12px;
-      color: #999999;
+      // color: #999999;
+      color: $main-messages-color-rank02;
       margin-left: 10px;
     }
   }
+
+  // メッセージ
   &__text {
     font-size: 14px;
-    color:  #434A54;
+    // color:  #434A54;
+    color: $main-messages-color-rank01;
   }
 }
 
+
+
+
+
+// メイン画面（メッセージ投稿フォーム）
 .form {
   padding: 20px 40px;
   height: 50px;
-  background-color: #ddd;
+  // background-color: #ddd;
+  background-color: $main-form-bgc;
 }
+
 .new_message {
   height: 50px;
-display: flex;
+  display: flex;
 }
+
+// 投稿欄
 .input-box {
   width: 100%;
   margin-left: 10px;
-  // display: flex;
   position: relative;
 
+  // テキスト入力欄
   &__text {
-    // padding: 0 40px 0 10px;
     height: 50px;
     width: 100%;
-    color: #434A54;
+    // color: #434A54;
+    color: $main-form-color;
     border-style: none;
   }
+
+  // 画像添付
   &__image {
     font-size: 1.3rem;
     position: absolute;
@@ -176,13 +272,16 @@ display: flex;
     cursor: pointer;
   }
 }
+
+// Submitボタン
 .submit-btn {
   margin-left: 15px;
-  // padding: 0 30px;
   height: 50px;
   width: 100px;
-  background-color: #38aef0;
-  color: #FFFFFF;
+  // background-color: #38aef0;
+  // color: #FFFFFF;
+  background-color: $main-form-btnbgc;
+  color: $main-form-btncolor;
   text-align: center;
   border-style: none;
   cursor: pointer;
