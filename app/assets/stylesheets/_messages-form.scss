@@ -1,0 +1,63 @@
+// -------------------------
+// 変数定義
+// -------------------------
+
+// カラー指定
+$main-form-bgc: #ddd;
+$main-form-color: #434A54;
+$main-form-btnbgc: #38AEF0;
+$main-form-btncolor: #FFFFFF;
+
+
+
+// -------------------------
+// メイン画面
+// -------------------------
+
+// メイン画面（メッセージ投稿フォーム）
+.form {
+  padding: 20px 40px;
+  height: 50px;
+  background-color: $main-form-bgc;
+}
+
+.new_message {
+  height: 50px;
+  display: flex;
+}
+
+// 投稿欄
+.input-box {
+  width: 100%;
+  margin-left: 10px;
+  position: relative;
+
+  // テキスト入力欄
+  &__text {
+    height: 50px;
+    width: 100%;
+    color: $main-form-color;
+    border-style: none;
+  }
+
+  // 画像添付
+  &__image {
+    font-size: 1.3rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+}
+
+// Submitボタン
+.submit-btn {
+  margin-left: 15px;
+  height: 50px;
+  width: 100px;
+  background-color: $main-form-btnbgc;
+  color: $main-form-btncolor;
+  text-align: center;
+  border-style: none;
+  cursor: pointer;
+}

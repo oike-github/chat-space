@@ -1,0 +1,28 @@
+// -------------------------
+// 変数定義
+// -------------------------
+
+// カラー指定
+$flash-bgc: #38AEF0;
+$flash-color: #FFFFFF;
+
+
+
+// -------------------------
+// メッセージ表示領域
+// -------------------------
+
+.flash-box {
+  width: 100vw;
+  background-color: $flash-bgc;
+  color: $flash-color;
+  text-align: center;
+  display: none;
+}
+
+// wrapper
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}

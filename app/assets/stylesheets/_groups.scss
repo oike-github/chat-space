@@ -1,0 +1,37 @@
+// -------------------------
+// 変数定義
+// -------------------------
+
+// カラー指定
+$side-color: #FFFFFF; 
+$side-groups-bgc: #2f3e51;
+
+
+
+// -------------------------
+// サイド画面
+// -------------------------
+
+// サイド画面（グループ一覧）
+.groups {
+  padding: 20px 20px 0 20px;
+  height: calc(100vh - 120px);
+  background-color: $side-groups-bgc;
+  color: $side-color;
+  overflow: scroll;
+}
+
+// サイド画面（グループ情報）
+.group {
+  // グループ名
+  &__group-name {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  // 最新メッセージ
+  &__latest-message {
+    font-size: 11px;
+    margin-bottom: 40px;
+  }
+}
