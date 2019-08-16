@@ -6,6 +6,10 @@
 $side-color: #FFFFFF; 
 $side-groups-bgc: #2f3e51;
 
+// フォントサイズ指定
+$group-name-font: 15px;
+$latest-message: 11px;
+
 
 
 // -------------------------
@@ -25,13 +29,13 @@ $side-groups-bgc: #2f3e51;
 .group {
   // グループ名
   &__group-name {
-    font-size: 15px;
+    font-size: $group-name-font;
     margin-bottom: 5px;
   }
 
   // 最新メッセージ
   &__latest-message {
-    font-size: 11px;
+    font-size: $latest-message;
     margin-bottom: 40px;
   }
 }

@@ -7,6 +7,11 @@ $main-messages-bgc: #fafafa;
 $main-messages-color-rank01: #434A54;
 $main-messages-color-rank02: #999999;
 
+// フォントサイズ指定
+$message-tolker-font: 16px;
+$message-date-font: 12px;
+$message-text-font: 14px;
+
 
 
 // -------------------------
@@ -32,13 +37,13 @@ $main-messages-color-rank02: #999999;
 
     // 投稿者名
     &__talker {
-      font-size: 16px;
+      font-size: $message-tolker-font;
       color: $main-messages-color-rank01;
       font-weight: bold;
     }
     // 投稿日時
     &__data {
-      font-size: 12px;
+      font-size: $message-date-font;
       color: $main-messages-color-rank02;
       margin-left: 10px;
     }
@@ -46,7 +51,7 @@ $main-messages-color-rank02: #999999;
 
   // メッセージ
   &__text {
-    font-size: 14px;
+    font-size: $message-text-font;
     color: $main-messages-color-rank01;
   }
 }

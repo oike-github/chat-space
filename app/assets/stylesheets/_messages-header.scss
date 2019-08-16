@@ -8,12 +8,15 @@ $main-header-color-rank02: #999999;
 $main-border-solid: #eeeeee;
 $main-header-btncolor: #38AEF0;
 
+// フォントサイズ指定
+$current-gname-font: 20px;
+$member-list-font: 12px;
+
 
 
 // -------------------------
 // メイン画面
 // -------------------------
-
 
 // メイン画面（表示領域）
 .chat-main {
@@ -34,14 +37,14 @@ $main-header-btncolor: #38AEF0;
 
     // 現在のグループ名
     &__current-group {
-      font-size: 20px;
+      font-size: $current-gname-font;
       color: $main-header-color-rank01;
     }
 
     // メンバー一覧
     &__member-list {
       margin-top:15px;
-      font-size: 12px;
+      font-size: $member-list-font;
       color: $main-header-color-rank02;
       display: flex;
 
