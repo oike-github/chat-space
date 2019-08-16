@@ -35,7 +35,8 @@ $main-form-btncolor: #FFFFFF;
   // テキスト入力欄
   &__text {
     height: 50px;
-    width: 100%;
+    width: calc(100% - 50px);
+    padding: 0 40px 0 10px;
     color: $main-form-color;
     border-style: none;
   }
@@ -47,6 +48,10 @@ $main-form-btncolor: #FFFFFF;
     top: 10px;
     right: 10px;
     cursor: pointer;
+
+    &__file {
+      display: none;
+    }
   }
 }
 
