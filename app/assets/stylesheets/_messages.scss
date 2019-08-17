@@ -1,0 +1,57 @@
+// -------------------------
+// 変数定義
+// -------------------------
+
+// カラー指定
+$main-messages-bgc: #fafafa;
+$main-messages-color-rank01: #434A54;
+$main-messages-color-rank02: #999999;
+
+// フォントサイズ指定
+$message-tolker-font: 16px;
+$message-date-font: 12px;
+$message-text-font: 14px;
+
+
+
+// -------------------------
+// メイン画面
+// -------------------------
+
+// メイン画面（メッセージ一覧）
+.messages {
+  padding: 46px 40px;
+  height: calc(100vh - 282px);
+  background-color: $main-messages-bgc;
+  overflow: scroll;
+}
+
+// メイン画面（メッセージ情報）
+.message {
+  margin-bottom: 40px;
+
+  // 基本情報
+  &__upper-info {
+    margin-bottom: 10px;
+    display: flex;
+
+    // 投稿者名
+    &__talker {
+      font-size: $message-tolker-font;
+      color: $main-messages-color-rank01;
+      font-weight: bold;
+    }
+    // 投稿日時
+    &__data {
+      font-size: $message-date-font;
+      color: $main-messages-color-rank02;
+      margin-left: 10px;
+    }
+  }
+
+  // メッセージ
+  &__text {
+    font-size: $message-text-font;
+    color: $main-messages-color-rank01;
+  }
+}

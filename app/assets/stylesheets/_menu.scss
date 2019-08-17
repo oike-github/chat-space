@@ -1,0 +1,63 @@
+// -------------------------
+// 変数定義
+// -------------------------
+
+// カラー指定
+$side-color: #FFFFFF; 
+$side-header-bgc: #253141;
+
+// フォントサイズ指定
+$current-user-font: 16px;
+
+
+
+// -------------------------
+// サイド画面
+// -------------------------
+
+// サイド画面（表示領域）
+.chat-side {
+  height: 100%;
+  width: 300px;
+  a {
+    text-decoration: none;
+    color: $side-color;
+  }
+}
+
+// サイド画面（ヘッダー）
+.side-header {
+  height: 100px;
+  padding: 0 20px;
+  background-color: $side-header-bgc;
+  color: $side-color;
+  line-height: 24px;
+
+  &__box {
+    line-height: 100px;
+    display: flex;
+    justify-content: space-between;
+
+    // ログインユーザー名
+    &__user-name {
+      display: block;
+      font-size: $current-user-font;
+      font-weight: bold;
+    }
+
+    // 管理メニュー
+    &__menu {
+      display: flex;
+
+      // 新規グループ作成
+      &__new-group {
+        margin-left: 0.3rem;
+      }
+
+      // アカウント情報編集
+      &__edit-user {
+        margin-left: 0.3rem;
+      }
+    }
+  }
+}

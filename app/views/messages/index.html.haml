@@ -1,0 +1,36 @@
+%body
+  .flash-box
+    グループを作成しました
+  .wrapper
+
+    = render 'chat-side'
+  
+    .chat-main
+      .main-header
+        .main-header__left-box
+          %h2.main-header__left-box__current-group test-group
+          %ul.main-header__left-box__member-list
+            Member：
+            %li.main-header__left-box__member-list__member test_user
+            %li.main-header__left-box__member-list__member user02
+        =link_to "#" do
+          .main-header__edit-btn Edit
+      .messages
+        .message
+          .message__upper-info
+            %p.message__upper-info__talker test_user
+            %p.message__upper-info__data 2019/08/13(mon) 00:00:00
+          %p.message__text こんにちは！
+        .message
+          .message__upper-info
+            %p.message__upper-info__talker test_user
+            %p.message__upper-info__data 2019/08/13(mon) 00:00:00
+          %p.message__text さようなら
+      .form
+        %form#new_message.new_message{enctype: "multipart/form-data", action: "#", method: "post"}
+          .input-box
+            %input#message_content.input-box__text{name: "message[content]" ,type: "text", placeholder: " type a message"}
+            %label.input-box__image{for: "message_image"}
+              %i.fa.fa-image
+              %input.input-box__image__file{name: "message[image]", type: "file", id: "message_image"}
+          %input.submit-btn{name: "commit", value: "Send"}
