@@ -17,5 +17,6 @@ module ChatSpace
       g.helper false         # ヘルパー生成せず
       g.test_framework false # テストファイル生成せず
     end
+    config.i18n.default_locale = :ja
   end
 end
