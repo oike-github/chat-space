@@ -28,6 +28,6 @@ class GroupsController < ApplicationController
   private
   def group_params
     # new.html.hamlからの値（グループ名、）
-    params.require(:group).permit(:name, {:user_ids => []})
+    params.require(:group).permit(:name, { :user_ids => [] })
   end
 end

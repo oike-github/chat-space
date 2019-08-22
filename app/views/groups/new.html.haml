@@ -3,8 +3,7 @@
   = form_for @group do |f|
     - if @group.errors.any?
       .chat-group-form__errors
-        %h2
-        = "#{@group.errors.full_messages.count}件のエラーが発生しました。"
+        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
         %ul
           - @group.errors.full_messages.each do | message |
             %li= message
@@ -20,9 +19,9 @@
         %label.chat-group-form__label{for: "members"} チャットメンバー
       .chat-group-form__field--right
         / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
-        = f.collection_check_boxes :user_ids, User.all, :id, :name
+        = f.collection_check_boxes :user_ids, User.all, :id, :name, include_hidden: false
         / この部分はインクリメンタルサーチ(ユーザー追加の非同期化)のときにも使用します
     .chat-group-form__field
       .chat-group-form__field--left
       .chat-group-form__field--right
-        %input.chat-group-form__action-btn{{data: {disable: {with: "Save"}}}, name: "commit", type: "submit", value: "Save"}/
+        = f.submit class: 'chat-group-form__action-btn'
