@@ -1,4 +1,7 @@
 class GroupsController < ApplicationController
+  def index
+  end
+  
   def new
     # Groupモデルのインスタンスを作成する
     @group = Group.new
