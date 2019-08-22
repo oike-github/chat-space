@@ -57,3 +57,8 @@ gem 'haml-rails'
 
 # Font Awesome
 gem 'font-awesome-rails'
+
+# devise
+gem 'devise'
+
+gem 'pry-rails'
