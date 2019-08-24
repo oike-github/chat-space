@@ -5,24 +5,19 @@
   .chat-main
     .main-header
       .main-header__left-box
-        %h2.main-header__left-box__current-group test-group
+        %h2.main-header__left-box__current-group
+          = @group.name
         %ul.main-header__left-box__member-list
           Member：
-          %li.main-header__left-box__member-list__member test_user
-          %li.main-header__left-box__member-list__member user02
-      =link_to edit_group_path(3) do
+          - @group.users.each do |user|
+            %li.main-header__left-box__member-list__member
+              = user.name
+      =link_to edit_group_path(@group.id) do
         .main-header__edit-btn Edit
     .messages
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker test_user
-          %p.message__upper-info__data 2019/08/13(mon) 00:00:00
-        %p.message__text こんにちは！
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker test_user
-          %p.message__upper-info__data 2019/08/13(mon) 00:00:00
-        %p.message__text さようなら
+
+      = render @messages
+
     .form
       = form_for [@group, @message] do |f|
         .input-box

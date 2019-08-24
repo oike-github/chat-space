@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
   before_action :set_group
 
   def index
-    binding.pry
     @message = Message.new
     @messages = @group.messages.includes(:user)
   end
