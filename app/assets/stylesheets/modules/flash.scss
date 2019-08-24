@@ -1,0 +1,24 @@
+// -------------------------
+// メッセージ表示領域
+// -------------------------
+
+.notification {
+  .notice {
+    background-color: $light_blue;
+    color: $white;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: $alert_orange;
+    color: $white;
+    text-align: center;
+  }
+}
+
+// wrapper
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
