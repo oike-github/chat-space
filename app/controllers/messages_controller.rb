@@ -3,6 +3,8 @@ class MessagesController < ApplicationController
 
   def index
     binding.pry
+    @message = Message.new
+    @messages = @group.messages.includes(:user)
   end
 
   def create
