@@ -49,9 +49,21 @@ $message-text-font: 14px;
     }
   }
 
-  // メッセージ
-  &__text {
-    font-size: $message-text-font;
-    color: $main-messages-color-rank01;
+  // メッセージ内容
+  &__lower-info {
+
+    // テキスト
+    &__text {
+      font-size: $message-text-font;
+      color: $main-messages-color-rank01;
+    }
+    // 画像
+    &__image {
+      max-width: 200px;
+      max-height: 200px;
+      width: auto;
+      height: auto;
+    }
   }
+  
 }

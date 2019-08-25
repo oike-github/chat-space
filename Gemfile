@@ -61,4 +61,9 @@ gem 'font-awesome-rails'
 # devise
 gem 'devise'
 
+# binding.pry debug
 gem 'pry-rails'
+
+# Image uploader
+gem 'carrierwave'
+gem 'mini_magick'
