@@ -31,6 +31,11 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  # Load devise controller test module and ControllerMacros. 2019.08.29 追加
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ControllerMacros, type: :controller
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
