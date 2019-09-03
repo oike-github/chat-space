@@ -11,8 +11,12 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     if @message.save
       # messagesテーブルへの登録が成功した場合
+      respond_to do |format|
+        format.html
+        format.json
+      end
       # messages/index.html.hamlへインスタンス変数とオプション(通知用メッセージ)付きでリダイレクト
-      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
+      # redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
     else
       # messagesテーブルへの登録が失敗した場合
       # フラッシュメッセージに設定したアラートメッセージを表示
