@@ -24,37 +24,46 @@ $(function() {
   $('#user-search-field').on("keyup", function() {
     // その時点で入力されているテキストボックスの値を取得
     var input = $("#user-search-field").val();
-    // 非同期通信
-    console.log(input);
-    $.ajax({
-      url: '/users',
-      type: "GET",
-      data: {keyword: input},
-      dataType: 'json'
-    })
 
-    // 非同期通信成功時（DB登録成功時）
-    .done(function(users){
-      // 検索結果リストを空にする（emptyメソッドで指定したDOM要素の子要素のみを削除する）
-      $("#user-search-result").empty();
-      // usersが空ではない場合
-      if (users.length !== 0) {
-        // データの数だけappendUser関数を実行
-        users.forEach(function(user){
-          appendUser(user);
-        });
-      }
-      else {
-        // 検索結果リストを空にする
+    // テキストボックスに値が存在する場合
+    if (input) {
+      // 非同期通信
+      console.log(input);
+      $.ajax({
+        url: '/users',
+        type: "GET",
+        data: {keyword: input},
+        dataType: 'json'
+      })
+
+      // 非同期通信成功時（DB検索成功時）
+      .done(function(users){
+        console.log(users);
+        // 検索結果リストを空にする（子要素のみ削除される）
         $("#user-search-result").empty();
-        // usersが空の場合（メッセージを表示する）
-        appendErrMsgToHTML("一致するユーザーが見つかりません");
-      }
-    })
 
-    .fail(function(){
-      // アラートメッセージを表示する
-      alert('メッセージを入力して下さい')
-    })
+        // 検索結果が空ではない場合
+        if (users.length !== 0) {
+          // データの数だけappendUser関数を実行
+          users.forEach(function(user){
+            appendUser(user);
+          });
+        }  else {
+          // 検索結果が空の場合（メッセージを表示する）
+          appendErrMsgToHTML("一致するユーザーが見つかりません");
+        }
+      })
+
+      // 非同期通信失敗時（DB検索成功時）
+      .fail(function(){
+        // アラートメッセージを表示する
+        alert('ユーザー検索に失敗しました')
+      })
+
+    } else {
+      // テキストボックスに値が存在しない場合
+      // 検索結果リストを空にする
+      $("#user-search-result").empty();
+    }
   })
 })
