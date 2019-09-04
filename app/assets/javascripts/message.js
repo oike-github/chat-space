@@ -59,11 +59,7 @@ $(function() {
       $('.messages').append(html);
 
       // フォームの初期化
-      // テキストフォームを空にする
-      $('.input-box__text').val('');
-      // 画像選択を空にする
-      $('.input-box__image__file').val('');
-      console.log(html);
+      $('.new_message')[0].reset();
       // 送信ボタンが押された状態を解除する
       $('.submit-btn').prop('disabled', false);
 
