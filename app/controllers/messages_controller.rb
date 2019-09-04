@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     if @message.save
       # messagesテーブルへの登録が成功した場合
       respond_to do |format|
-        format.html
+        format.html {redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'}
         format.json
       end
       # messages/index.html.hamlへインスタンス変数とオプション(通知用メッセージ)付きでリダイレクト
