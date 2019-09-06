@@ -75,10 +75,11 @@ $(function() {
 
   // 追加するユーザーのhtmlを生成
   function appendMember(add){
-    var html = `<div class="chat-group-user clearfix">
-    <p class="chat-group-user__name">${ add.userName }</p>
-    <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove" data-user-id="${ add.userId }" data-user-name="${ add.userName }">削除</div>
-    </div>`
+    var html = `<div class='chat-group-user'>
+    <input name='group[user_ids][]' type='hidden' value='${ add.userId }'>
+    <p class='chat-group-user__name'>${ add.userName }</p>
+    <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+  </div>`
     // メンバーリストに作成したhtmlを追加
     member_list.append(current_user);
     member_list.append(html);
