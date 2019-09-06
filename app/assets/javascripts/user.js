@@ -96,9 +96,9 @@ $(function() {
     $(this).parent().remove();
   })
 
-  //   // 削除ボタン押下時のイベント
-  // $('.chat-group-user__btn--remove').on("click", function() {
-  //   // チャットメンバーから選択したユーザーを削除する
-  //   // 再度キーワード検索を実施する
-  // })
+  // 削除ボタン押下時のイベント
+  $(document).on("click", ".chat-group-user__btn--remove",function() {
+    // チャットメンバーから選択したユーザーを削除する
+    $(this).parent().remove();
+  })
 })
