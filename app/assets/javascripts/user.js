@@ -66,4 +66,39 @@ $(function() {
       $("#user-search-result").empty();
     }
   })
+
+
+  // メンバーリストの親要素(div)を取得
+  var member_list = $("#chat-group-users");
+  // カレントユーザー部分の要素を取得
+  var current_user = $("#chat-group-users").children();
+
+  // 追加するユーザーのhtmlを生成
+  function appendMember(add){
+    var html = `<div class="chat-group-user clearfix">
+    <p class="chat-group-user__name">${ add.userName }</p>
+    <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove" data-user-id="${ add.userId }" data-user-name="${ add.userName }">削除</div>
+    </div>`
+    // メンバーリストに作成したhtmlを追加
+    member_list.append(current_user);
+    member_list.append(html);
+  }
+  // 追加ボタン押下時のイベント
+  $(document).on("click", ".chat-group-user__btn--add", function() {
+    var member = $(this).data();
+    console.log(member);
+
+    // 検索結果リストを空にする（子要素のみ削除される）
+    $("#chat-group-users").empty();
+    // チャットメンバーに選択したユーザーを追加する
+    appendMember(member);
+    // 検索結果リストから選択したユーザーを削除する
+    $(this).parent().remove();
+  })
+
+  //   // 削除ボタン押下時のイベント
+  // $('.chat-group-user__btn--remove').on("click", function() {
+  //   // チャットメンバーから選択したユーザーを削除する
+  //   // 再度キーワード検索を実施する
+  // })
 })
