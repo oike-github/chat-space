@@ -28,7 +28,6 @@ $(function() {
     // テキストボックスに値が存在する場合
     if (input) {
       // 非同期通信
-      console.log(input);
       $.ajax({
         url: '/users',
         type: "GET",
@@ -38,7 +37,6 @@ $(function() {
 
       // 非同期通信成功時（DB検索成功時）
       .done(function(users){
-        console.log(users);
         // 検索結果リストを空にする（子要素のみ削除される）
         $("#user-search-result").empty();
 
@@ -77,7 +75,7 @@ $(function() {
   // メンバーリストの親要素(div)を取得
   var member_list = $("#chat-group-users");
   // メンバーリストの子要素を取得
-  var current_user = $("#chat-group-users").children();
+  var members = $("#chat-group-users").children();
 
   // 追加するユーザーのhtmlを生成
   function appendMember(add){
@@ -87,14 +85,15 @@ $(function() {
     <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
   </div>`
     // メンバーリストに作成したhtmlを追加
-    member_list.append(current_user);
+    member_list.append(members);
     member_list.append(html);
   }
+
   // 追加ボタン押下時のイベント
   $(document).on("click", ".chat-group-user__btn--add", function() {
     var member = $(this).data();
-    console.log(member);
-
+    // メンバーリストの子要素を取得
+    members = $("#chat-group-users").children();
     // 検索結果リストを空にする（子要素のみ削除される）
     $("#chat-group-users").empty();
     // チャットメンバーに選択したユーザーを追加する
