@@ -105,3 +105,11 @@ li {
     }
   }
 }
+
+.clearfix {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
