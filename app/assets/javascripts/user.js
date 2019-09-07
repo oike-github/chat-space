@@ -46,8 +46,14 @@ $(function() {
         if (users.length !== 0) {
           // データの数だけappendUser関数を実行
           users.forEach(function(user){
-            appendUser(user);
+
+            // current_userのidを取得
+            var current_user_id = $("#chat-group-user__current_user").find("input").val();
+            if (user.id != current_user_id){ 
+              appendUser(user);
+            }
           });
+
         }  else {
           // 検索結果が空の場合（メッセージを表示する）
           appendErrMsgToHTML("一致するユーザーが見つかりません");
@@ -70,7 +76,7 @@ $(function() {
 
   // メンバーリストの親要素(div)を取得
   var member_list = $("#chat-group-users");
-  // カレントユーザー部分の要素を取得
+  // メンバーリストの子要素を取得
   var current_user = $("#chat-group-users").children();
 
   // 追加するユーザーのhtmlを生成
