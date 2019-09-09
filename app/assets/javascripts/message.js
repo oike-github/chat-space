@@ -80,8 +80,7 @@ $(function() {
     // 指定したグループページのURLと一致した場合のみ
     if(location.href.match(/\/groups\/\d+\/messages/)){
       //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-      last_message_id = $('.messages .message:first').data('message-id');
-      console.log('last_message_id:' + last_message_id);
+      last_message_id = $('.messages .message:last').data('message-id');
       $.ajax({
         // 接続先        : /groups/id番号/api/messages
         // httpメソッド   : get
@@ -93,9 +92,6 @@ $(function() {
       })
 
       .done(function(messages) {
-        console.log('success');
-        console.log('message[0]:' + JSON.stringify(messages[0]));
-
         //追加するHTMLの入れ物を作る
         var insertHTML = '';
 
@@ -111,7 +107,8 @@ $(function() {
       })
 
       .fail(function() {
-        console.log('error');
+        // アラートメッセージを表示する
+        alert('自動更新に失敗しました')
       });
   }
   };
