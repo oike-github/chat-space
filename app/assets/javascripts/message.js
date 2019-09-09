@@ -1,7 +1,7 @@
 $(function() {
   // 取得したデータを元にmessage部分のhtmlを生成する
   function buildHTML(message){
-      var html = `<div class="message">
+      var html = `<div class="message" data-message-id="${ message.id }">
                     <div class="message__upper-info">
                       <p class="message__upper-info__talker">
                         ${ message.user_name }
@@ -72,4 +72,50 @@ $(function() {
       $('.submit-btn').prop('disabled', false);
     })
   })
+
+  //###################
+  // メッセージの自動更新
+  //###################
+  var reloadMessages = function() {
+    // 指定したグループページのURLと一致した場合のみ
+    if(location.href.match(/\/groups\/\d+\/messages/)){
+      //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+      last_message_id = $('.messages .message:first').data('message-id');
+      console.log('last_message_id:' + last_message_id);
+      $.ajax({
+        // 接続先        : /groups/id番号/api/messages
+        // httpメソッド   : get
+        // dataオプション : 最新のmessage_id
+        url: 'api/messages',
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+
+      .done(function(messages) {
+        console.log('success');
+        console.log('message[0]:' + JSON.stringify(messages[0]));
+
+        //追加するHTMLの入れ物を作る
+        var insertHTML = '';
+
+        //メッセージの数だけmessageのHTMLを生成
+        messages.forEach(function(message){
+          insertHTML = buildHTML(message)
+        });
+        //メッセージを追加
+        $('.messages').append(insertHTML);
+
+        // スクロールの処理を実行する
+        scroll()
+      })
+
+      .fail(function() {
+        console.log('error');
+      });
+  }
+  };
+
+    // 5秒毎にメッセージの自動更新を実行する
+    setInterval(reloadMessages, 5000);
 })
