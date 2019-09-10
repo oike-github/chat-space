@@ -73,18 +73,12 @@ $(function() {
     })
   })
 
-  //###################
-  // メッセージの自動更新
-  //###################
   var reloadMessages = function() {
     // 指定したグループページのURLと一致した場合のみ
     if(location.href.match(/\/groups\/\d+\/messages/)){
       //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
       last_message_id = $('.messages .message:last').data('message-id');
       $.ajax({
-        // 接続先        : /groups/id番号/api/messages
-        // httpメソッド   : get
-        // dataオプション : 最新のmessage_id
         url: 'api/messages',
         type: 'get',
         dataType: 'json',
