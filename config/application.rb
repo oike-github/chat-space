@@ -18,5 +18,9 @@ module ChatSpace
       g.test_framework false # テストファイル生成せず
     end
     config.i18n.default_locale = :ja
+    # Railsが表示の際に扱うタイムゾーン
+    config.time_zone = 'Tokyo'
+    # Rails(Activerecord)がDBへのRead・Writeを行う際タイムゾーン
+    config.active_record.default_timezone = :local
   end
 end
