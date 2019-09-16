@@ -16,5 +16,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# コミット対象外にしたいディレクトリを指定　2019/8/7
+# コミット対象外にしたいディレクトリを指定 2019/8/7
 public/uploads/*
+# AWSのアクセスキーを含むため対象外にする 2019/9/16
+config/secrets.yml
